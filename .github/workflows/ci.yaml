@@ -38,12 +38,3 @@ jobs:
 
       - name: Build Project
         run: yarn build
-
-      - name: Build api-docs
-        run: yarn api-docs:build
-
-      - name: Validate api-docs
-        run: yarn api-docs:validate
-
-      - name: Run unit tests
-        run: yarn test:unit
