@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+. "$(dirname "$0")/_/husky.sh"
+
+    yarn lint:fix # Runs ESLint with auto-fix
+    yarn format # Runs Prettier to format code
