@@ -1,28 +1,28 @@
-import express from "express";
-import cors from "cors";
-import http from "http";
-import logger from "../logger.js";
-import config from "../config/index.js";
-import Database from "../config/dbConnection.js";
-import Loaders from "../../interface/loders/index.js";
-import { initSocket } from "./socket.js";
+import express from 'express';
+import cors from 'cors';
+import http from 'http';
+import logger from '../logger.js';
+import config from '../config/index.js';
+import Database from '../config/dbConnection.js';
+import Loaders from '../../interface/loders/index.js';
+import { initSocket } from './socket.js';
 
 const app = express();
 
 const options: cors.CorsOptions = {
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 
 app.use(cors(options));
 
 const startServer = () => {
-  process.on("SIGTERM", () => {
-    logger.warn("===== Server closed =====");
+  process.on('SIGTERM', () => {
+    logger.warn('===== Server closed =====');
     process.exit(0);
   });
 
-  process.on("unhandledRejection", (reason: string, p) => {
-    logger.info("Unhandled Rejection at: Promise", p, "reason:", reason);
+  process.on('unhandledRejection', (reason: string, p) => {
+    logger.info('Unhandled Rejection at: Promise', p, 'reason:', reason);
   });
 
   const httpServer = http.createServer(app);

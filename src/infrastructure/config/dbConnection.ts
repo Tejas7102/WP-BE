@@ -1,16 +1,15 @@
-
-import logger from "../logger.js"
-import { sequelize } from "../orm/config/sequelizeConnection.js"
+import logger from '../logger.js';
+import { sequelize } from '../orm/config/sequelizeConnection.js';
 
 const Database = {
   init: async () => {
     try {
-      logger.info("Connecting to database...")
-      await sequelize.authenticate()
+      logger.info('Connecting to database...');
+      await sequelize.authenticate();
     } catch (err) {
-      logger.debug(err)
+      logger.debug(err);
     }
   },
-}
+};
 
-export default Database
+export default Database;
